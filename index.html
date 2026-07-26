@@ -493,11 +493,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:80px 5% 
       <h2 class="section-title">My Technical <span>Skills</span></h2>
     </div>
     <div class="skills-tabs reveal">
-      <button class="tab-btn active" onclick="filterSkills('all',this)">All Skills</button>
-      <button class="tab-btn" onclick="filterSkills('cv',this)">Computer Vision</button>
-      <button class="tab-btn" onclick="filterSkills('ai',this)">AI / ML</button>
-      <button class="tab-btn" onclick="filterSkills('tools',this)">Tools & Frameworks</button>
-      <button class="tab-btn" onclick="filterSkills('ds',this)">Data Science</button>
+    <button class="tab-btn active" onclick="filterSkills('all',this)">All Skills</button>
+    <button class="tab-btn" onclick="filterSkills('cv',this)">Computer Vision</button>
+    <button class="tab-btn" onclick="filterSkills('ai',this)">AI / ML</button>
+    <button class="tab-btn" onclick="filterSkills('tools',this)">Tools & Frameworks</button>
+    <button class="tab-btn" onclick="filterSkills('ds',this)">Data Science</button>
     </div>
     <div class="skills-grid" id="skillsGrid"></div>
   </div>
@@ -1055,35 +1055,42 @@ const observer=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 // ===== SKILLS =====
-const skillsData=[
-  {cat:'cv',icon:'👁️',name:'Object Detection',level:'Advanced',w:95},
-  {cat:'cv',icon:'🗺️',name:'Image Segmentation',level:'Advanced',w:92},
-  {cat:'cv',icon:'🏃',name:'Pose Estimation',level:'Proficient',w:88},
-  {cat:'cv',icon:'🎯',name:'Object Tracking',level:'Advanced',w:90},
-  {cat:'cv',icon:'📦',name:'OBB Detection',level:'Proficient',w:85},
-  {cat:'cv',icon:'🎬',name:'Video Analytics',level:'Proficient',w:87},
-  {cat:'cv',icon:'🔍',name:'Instance Segmentation',level:'Advanced',w:88},
-  {cat:'cv',icon:'🖼️',name:'Image Classification',level:'Advanced',w:91},
-  {cat:'ai',icon:'🧠',name:'Deep Learning',level:'Advanced',w:90},
-  {cat:'ai',icon:'🤖',name:'Machine Learning',level:'Proficient',w:85},
-  {cat:'ai',icon:'✨',name:'Generative AI',level:'Learning',w:75},
-  {cat:'ai',icon:'⚡',name:'Transfer Learning',level:'Advanced',w:88},
-  {cat:'ai',icon:'⚙️',name:'Model Training',level:'Advanced',w:92},
-  {cat:'ai',icon:'📈',name:'Model Evaluation',level:'Advanced',w:90},
-  {cat:'tools',icon:'🐍',name:'Python',level:'Expert',w:97},
-  {cat:'tools',icon:'👁️',name:'OpenCV',level:'Advanced',w:93},
-  {cat:'tools',icon:'🔥',name:'PyTorch',level:'Advanced',w:88},
-  {cat:'tools',icon:'🌊',name:'TensorFlow',level:'Proficient',w:80},
-  {cat:'tools',icon:'⚡',name:'YOLO / Ultralytics',level:'Expert',w:95},
-  {cat:'tools',icon:'📊',name:'Scikit-learn',level:'Advanced',w:87},
-  {cat:'tools',icon:'🎯',name:'Streamlit',level:'Proficient',w:82},
-  {cat:'tools',icon:'🐙',name:'GitHub',level:'Proficient',w:85},
-  {cat:'ds',icon:'📊',name:'Exploratory Data Analysis',level:'Advanced',w:90},
-  {cat:'ds',icon:'📉',name:'Data Visualization',level:'Advanced',w:88},
-  {cat:'ds',icon:'🔮',name:'Predictive Modeling',level:'Proficient',w:82},
-  {cat:'ds',icon:'💡',name:'Business Insights',level:'Proficient',w:80},
-  {cat:'ds',icon:'🧮',name:'Feature Engineering',level:'Proficient',w:83},
-  {cat:'ds',icon:'📝',name:'Report Generation',level:'Advanced',w:87},
+const skillsData = [
+  {
+    cat: 'tools',
+    icon: '🐍',
+    name: 'Python',
+    level: 'Expert',
+    w: 98
+  },
+  {
+    cat: 'cv',
+    icon: '🧠',
+    name: 'Computer Vision',
+    level: 'Expert',
+    w: 96
+  },
+  {
+    cat: 'tools',
+    icon: '⚡',
+    name: 'YOLO / Ultralytics',
+    level: 'Expert',
+    w: 97
+  },
+  {
+    cat: 'tools',
+    icon: '🔥',
+    name: 'PyTorch',
+    level: 'Advanced',
+    w: 92
+  },
+  {
+    cat: 'ai',
+    icon: '🤖',
+    name: 'Machine Learning',
+    level: 'Advanced',
+    w: 90
+  }
 ];
 function renderSkills(filter){
   const grid=document.getElementById('skillsGrid');
