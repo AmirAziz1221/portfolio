@@ -1,1144 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Amir Aziz - Computer Vision Engineer & Data Scientist. BS Data Science UET Peshawar. NCAI Intern.">
-<title>Amir Aziz | Computer Vision Engineer & AI Developer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amir Aziz | Computer Vision & AI Engineer</title>
+<meta name="description" content="Amir Aziz is a Data Scientist and Computer Vision engineer (BS Data Science, UET Peshawar, 2026) building detection, tracking and AI proctoring systems with Python, YOLO, OpenCV and FastAPI.">
+<meta property="og:title" content="Amir Aziz | Computer Vision & AI Engineer">
+<meta property="og:description" content="Detection, tracking and AI proctoring systems. See the live demos.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0c12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0c12'/%3E%3Cpath d='M8 8h6M8 8v6M24 8h-6M24 8v6M8 24h6M8 24v-6M24 24h-6M24 24v-6' stroke='%237c9cff' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #04040e;
-  --bg2: #08081a;
-  --bg3: #0e0e24;
-  --card: #10102a;
-  --card2: #14143a;
-  --txt: #f0f0ff;
-  --txt2: #9090b8;
-  --txt3: #5a5a88;
-  --cyan: #00e5ff;
-  --cyan2: #00b8d9;
-  --blue: #3b82f6;
-  --purple: #8b5cf6;
-  --orange: #ff6b22;
-  --orange2: #ff8c4b;
-  --border: rgba(0,229,255,0.1);
-  --border2: rgba(139,92,246,0.15);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden;line-height:1.7;}
-::-webkit-scrollbar{width:4px;}
-::-webkit-scrollbar-track{background:var(--bg);}
-::-webkit-scrollbar-thumb{background:var(--purple);border-radius:2px;}
-::selection{background:rgba(0,229,255,0.2);color:var(--txt);}
-
-/* ===== NAVBAR ===== */
-nav{
-  position:fixed;top:0;left:0;width:100%;z-index:1000;
-  padding:18px 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(4,4,14,0.7);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  transition:all 0.3s ease;
-}
-nav.scrolled{padding:12px 5%;background:rgba(4,4,14,0.95);}
-.nav-logo{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--txt);text-decoration:none;letter-spacing:-0.5px;}
-.nav-logo span{color:var(--cyan);}
-.nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
-.nav-links a{color:var(--txt2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s;position:relative;}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--cyan);transition:width 0.3s;}
-.nav-links a:hover{color:var(--txt);}
-.nav-links a:hover::after{width:100%;}
-.nav-right{display:flex;align-items:center;gap:12px;}
-.btn-hire{background:var(--orange);color:#fff;padding:10px 22px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s;box-shadow:0 0 20px rgba(255,107,34,0.3);}
-.btn-hire:hover{background:var(--orange2);box-shadow:0 0 32px rgba(255,107,34,0.5);transform:translateY(-2px);}
-.btn-cv{background:transparent;color:var(--cyan);padding:9px 20px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid rgba(0,229,255,0.3);transition:all 0.3s;display:flex;align-items:center;gap:6px;}
-.btn-cv:hover{background:rgba(0,229,255,0.08);transform:translateY(-2px);}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.nav-toggle span{display:block;width:24px;height:2px;background:var(--txt);border-radius:2px;transition:0.3s;}
-
-/* ===== PARTICLES ===== */
-#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
-
-/* ===== SECTIONS ===== */
-section{position:relative;z-index:1;}
-.section-inner{max-width:1200px;margin:0 auto;padding:0 5%;}
-.section-label{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;}
-.section-label::before{content:'';width:30px;height:1px;background:var(--cyan);}
-.section-title{font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.1;color:var(--txt);margin-bottom:16px;}
-.section-title span{color:var(--cyan);}
-.section-sub{color:var(--txt2);font-size:16px;max-width:560px;line-height:1.7;}
-
-/* ===== HERO ===== */
-#home{min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden;}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px);background-size:60px 60px;z-index:0;}
-.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);z-index:0;pointer-events:none;}
-.hero-glow-1{background:rgba(139,92,246,0.08);top:-100px;right:-100px;}
-.hero-glow-2{background:rgba(0,229,255,0.05);bottom:-200px;left:-100px;}
-.hero-content{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:50px;padding:8px 18px;font-size:13px;font-weight:500;color:var(--cyan);margin-bottom:24px;animation:fadeUp 0.6s ease both;}
-.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,229,255,0.4);}50%{box-shadow:0 0 0 6px rgba(0,229,255,0);}}
-.hero-h1{font-family:'Syne',sans-serif;font-size:clamp(28px,3.5vw,46px);font-weight:800;line-height:1.2;letter-spacing:-1px;color:var(--txt);margin-bottom:24px;animation:fadeUp 0.7s 0.1s ease both;}
-.hero-h1 .highlight{
-  background:linear-gradient(135deg,var(--cyan),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  display:block;
-  height:1.3em;
-  overflow:hidden;
-  white-space:nowrap;
-}
-.hero-p{color:var(--txt2);font-size:16px;line-height:1.75;margin-bottom:36px;max-width:500px;animation:fadeUp 0.7s 0.2s ease both;}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;animation:fadeUp 0.7s 0.3s ease both;}
-.btn-primary{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#03030a;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.3s;box-shadow:0 0 28px rgba(0,229,255,0.25);display:inline-flex;align-items:center;gap:8px;}
-.btn-primary:hover{box-shadow:0 0 44px rgba(0,229,255,0.4);transform:translateY(-3px);}
-.btn-secondary{background:transparent;color:var(--txt);padding:13px 28px;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.15);transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
-.btn-secondary:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-3px);}
-.hero-contact{display:flex;flex-direction:column;gap:10px;animation:fadeUp 0.7s 0.4s ease both;}
-.hero-contact-item{display:flex;align-items:center;gap:10px;color:var(--txt2);font-size:14px;}
-.hero-contact-item i{color:var(--cyan);width:16px;text-align:center;}
-.hero-contact-item a{color:var(--cyan);text-decoration:none;}
-.hero-contact-item a:hover{text-decoration:underline;}
-
-/* HERO VISUAL */
-.hero-visual{display:flex;align-items:center;justify-content:center;position:relative;animation:fadeUp 0.8s 0.2s ease both;}
-.globe-wrap{position:relative;width:420px;height:420px;display:flex;align-items:center;justify-content:center;}
-.globe-ring{position:absolute;border-radius:50%;border:1px solid;animation:spinRing linear infinite;}
-.ring1{width:320px;height:320px;border-color:rgba(0,229,255,0.15);animation-duration:20s;}
-.ring2{width:380px;height:380px;border-color:rgba(139,92,246,0.1);animation-duration:30s;animation-direction:reverse;}
-.ring3{width:415px;height:415px;border-color:rgba(0,229,255,0.06);animation-duration:45s;}
-@keyframes spinRing{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-.globe-core{width:200px;height:200px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(0,229,255,0.2),rgba(139,92,246,0.15),rgba(59,130,246,0.1));border:1px solid rgba(0,229,255,0.25);box-shadow:0 0 60px rgba(0,229,255,0.15),inset 0 0 60px rgba(139,92,246,0.1);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;}
-.globe-eye{width:80px;height:80px;border-radius:50%;background:rgba(0,229,255,0.05);border:2px solid rgba(0,229,255,0.4);box-shadow:0 0 30px rgba(0,229,255,0.3);display:flex;align-items:center;justify-content:center;}
-.globe-pupil{width:32px;height:32px;border-radius:50%;background:radial-gradient(circle,var(--cyan),var(--blue));box-shadow:0 0 20px rgba(0,229,255,0.6);animation:eyePulse 3s ease-in-out infinite;}
-@keyframes eyePulse{0%,100%{transform:scale(1);box-shadow:0 0 20px rgba(0,229,255,0.6);}50%{transform:scale(1.2);box-shadow:0 0 40px rgba(0,229,255,0.8);}}
-.float-tag{position:absolute;background:rgba(8,8,26,0.9);border:1px solid rgba(0,229,255,0.2);border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;color:var(--cyan);font-family:'JetBrains Mono',monospace;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,0.4);animation:floatTag 4s ease-in-out infinite;z-index:3;}
-.ft1{top:10px;left:-20px;animation-delay:0s;}
-.ft2{top:30px;right:-30px;animation-delay:0.7s;border-color:rgba(139,92,246,0.3);color:var(--purple);}
-.ft3{bottom:60px;left:-40px;animation-delay:1.4s;}
-.ft4{bottom:30px;right:-20px;animation-delay:2.1s;border-color:rgba(59,130,246,0.3);color:var(--blue);}
-.ft5{top:50%;left:-60px;transform:translateY(-50%);animation-delay:2.8s;}
-.ft6{top:50%;right:-50px;transform:translateY(-50%);animation-delay:3.5s;border-color:rgba(255,107,34,0.3);color:var(--orange);}
-@keyframes floatTag{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-
-/* ===== ABOUT ===== */
-#about{padding:120px 0;background:linear-gradient(180deg,transparent,rgba(14,14,36,0.5),transparent);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.about-photo-frame{width:100%;max-width:440px;aspect-ratio:1;border-radius:20px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.about-photo-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);}
-.about-photo-frame img{width:100%;height:100%;object-fit:cover;border-radius:20px;}
-.about-photo-placeholder{font-family:'Syne',sans-serif;font-size:80px;font-weight:800;color:rgba(0,229,255,0.08);letter-spacing:-3px;}
-.about-mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
-.about-mini{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;transition:all 0.3s;}
-.about-mini:hover{border-color:rgba(0,229,255,0.3);background:var(--card2);transform:translateY(-2px);}
-.about-mini-icon{font-size:18px;margin-bottom:6px;}
-.about-mini-title{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:2px;}
-.about-mini-sub{color:var(--txt3);font-size:11px;}
-.about-text .section-sub{max-width:none;margin-bottom:20px;}
-
-/* ===== SKILLS ===== */
-#skills{padding:120px 0;}
-.skills-head{text-align:center;margin-bottom:60px;}
-.skills-head .section-label{justify-content:center;}
-.skills-head .section-label::before{display:none;}
-.skills-tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
-.tab-btn{background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--txt2);padding:9px 20px;border-radius:50px;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.3s;font-family:'DM Sans',sans-serif;}
-.tab-btn:hover,.tab-btn.active{background:rgba(0,229,255,0.08);border-color:var(--cyan);color:var(--cyan);}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;}
-.skill-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 18px;transition:all 0.3s;position:relative;overflow:hidden;}
-.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);transform:scaleX(0);transition:transform 0.3s;}
-.skill-card:hover{border-color:rgba(0,229,255,0.3);background:var(--card2);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.4);}
-.skill-card:hover::before{transform:scaleX(1);}
-.skill-icon{font-size:22px;margin-bottom:10px;}
-.skill-name{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:4px;}
-.skill-level{font-size:11px;color:var(--txt3);font-family:'JetBrains Mono',monospace;}
-.skill-bar{height:2px;background:rgba(255,255,255,0.06);border-radius:2px;margin-top:10px;overflow:hidden;}
-.skill-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue));border-radius:2px;transition:width 1.2s ease;width:0;}
-
-/* ===== SERVICES ===== */
-#services{padding:120px 0;background:linear-gradient(180deg,transparent,rgba(14,14,36,0.4),transparent);}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin-top:60px;}
-.service-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px 32px;position:relative;overflow:hidden;transition:all 0.4s;display:flex;flex-direction:column;gap:16px;}
-.service-card:hover{border-color:rgba(0,229,255,0.25);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.4);}
-.service-num{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--cyan);opacity:0.6;}
-.service-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--txt);line-height:1.2;}
-.service-desc{color:var(--txt2);font-size:14px;line-height:1.7;flex:1;}
-.service-icon-wrap{width:48px;height:48px;border-radius:12px;background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.15);display:flex;align-items:center;justify-content:center;font-size:20px;}
-.service-icon-wrap i{color:var(--cyan);}
-
-/* ===== PROJECTS ===== */
-#projects{padding:120px 0;}
-.projects-head{margin-bottom:60px;}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;}
-.project-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.4s;display:flex;flex-direction:column;}
-.project-card:hover{border-color:rgba(0,229,255,0.3);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.5);}
-.project-thumb{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--card2);}
-.project-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
-.project-card:hover .project-thumb img{transform:scale(1.05);}
-.project-thumb video{width:100%;height:100%;object-fit:cover;}
-.project-thumb .project-thumb-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
-.project-thumb-fallback-icon{font-size:52px;}
-.project-thumb-fallback-bg{position:absolute;inset:0;}
-.pt-flood{background:linear-gradient(135deg,rgba(0,100,200,0.3),rgba(0,50,150,0.5));}
-.pt-vehicle{background:linear-gradient(135deg,rgba(0,180,100,0.2),rgba(0,100,60,0.4));}
-.pt-football{background:linear-gradient(135deg,rgba(255,107,34,0.2),rgba(180,50,0,0.4));}
-.pt-infra{background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(80,40,180,0.4));}
-.pt-play{background:linear-gradient(135deg,rgba(0,229,255,0.15),rgba(59,130,246,0.3));}
-.pt-class{background:linear-gradient(135deg,rgba(255,200,0,0.15),rgba(200,100,0,0.3));}
-.pt-dashboard{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,100,80,0.4));}
-.pt-pose{background:linear-gradient(135deg,rgba(200,50,150,0.2),rgba(139,92,246,0.3));}
-.project-body{padding:24px;flex:1;display:flex;flex-direction:column;gap:12px;}
-.project-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--txt);line-height:1.3;}
-.project-desc{color:var(--txt2);font-size:13px;line-height:1.6;flex:1;}
-.tech-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
-.tech-tag{background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.12);border-radius:50px;padding:3px 10px;font-size:11px;font-weight:500;color:var(--txt2);font-family:'JetBrains Mono',monospace;}
-.project-links{display:flex;gap:10px;margin-top:8px;}
-.proj-btn{flex:1;background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--txt2);padding:9px 0;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;text-align:center;transition:all 0.3s;display:flex;align-items:center;justify-content:center;gap:6px;}
-.proj-btn.primary{background:rgba(0,229,255,0.08);border-color:rgba(0,229,255,0.2);color:var(--cyan);}
-.proj-btn:hover{background:rgba(0,229,255,0.1);border-color:var(--cyan);color:var(--cyan);}
-
-/* ===== DOCUMENTS ===== */
-#documents{padding:80px 0;background:linear-gradient(180deg,transparent,rgba(14,14,36,0.4),transparent);}
-.docs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:50px;}
-.doc-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;align-items:center;gap:18px;text-decoration:none;transition:all 0.3s;position:relative;overflow:hidden;}
-.doc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);transform:scaleX(0);transition:transform 0.3s;}
-.doc-card:hover{border-color:rgba(0,229,255,0.3);background:var(--card2);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.4);}
-.doc-card:hover::before{transform:scaleX(1);}
-.doc-icon{width:50px;height:50px;border-radius:12px;background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;}
-.doc-icon i{color:var(--cyan);font-size:22px;}
-.doc-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:3px;}
-.doc-sub{font-size:12px;color:var(--txt3);}
-.doc-action{margin-left:auto;color:var(--cyan);font-size:14px;flex-shrink:0;}
-
-/* ===== PROCESS ===== */
-#process{padding:120px 0;background:linear-gradient(180deg,transparent,rgba(14,14,36,0.5),transparent);}
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px;position:relative;}
-.process-grid::before{content:'';position:absolute;top:44px;left:calc(12.5% + 30px);width:calc(75% - 60px);height:1px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--blue),var(--cyan));opacity:0.2;z-index:0;}
-.process-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px 24px;position:relative;z-index:1;transition:all 0.4s;text-align:center;}
-.process-card:hover{border-color:rgba(0,229,255,0.3);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.4);}
-.process-num{width:56px;height:56px;border-radius:50%;background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--cyan);margin:0 auto 20px;}
-.process-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--txt);margin-bottom:10px;}
-.process-desc{color:var(--txt2);font-size:13px;line-height:1.65;}
-
-/* ===== EXPERIENCE ===== */
-#experience{padding:120px 0;}
-.exp-timeline{position:relative;margin-top:60px;padding-left:40px;}
-.exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--cyan),var(--purple),transparent);opacity:0.3;}
-.exp-item{position:relative;padding:32px 40px;background:var(--card);border:1px solid var(--border);border-radius:20px;margin-bottom:20px;transition:all 0.3s;}
-.exp-item::before{content:'';position:absolute;left:-46px;top:36px;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px rgba(0,229,255,0.4);}
-.exp-item:hover{border-color:rgba(0,229,255,0.25);transform:translateX(6px);}
-.exp-type{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
-.exp-role{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--txt);margin-bottom:4px;}
-.exp-org{font-size:14px;color:var(--cyan);margin-bottom:16px;font-weight:500;}
-.exp-desc{color:var(--txt2);font-size:14px;line-height:1.7;}
-
-/* ===== CTA ===== */
-#cta{padding:120px 0;text-align:center;position:relative;overflow:hidden;}
-.cta-glow-bg{position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 50% 50%,rgba(139,92,246,0.08),transparent);pointer-events:none;}
-.cta-box{max-width:800px;margin:0 auto;position:relative;z-index:1;}
-.cta-title{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.1;color:var(--txt);margin-bottom:20px;}
-.cta-sub{color:var(--txt2);font-size:16px;max-width:560px;margin:0 auto 40px;line-height:1.7;}
-.cta-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
-.btn-cta-primary{background:var(--orange);color:#fff;padding:15px 30px;border-radius:50px;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.3s;box-shadow:0 0 30px rgba(255,107,34,0.3);display:inline-flex;align-items:center;gap:8px;}
-.btn-cta-primary:hover{background:var(--orange2);box-shadow:0 0 50px rgba(255,107,34,0.5);transform:translateY(-3px);}
-.btn-cta-outline{background:transparent;color:var(--txt);padding:14px 28px;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.15);transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
-.btn-cta-outline:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-3px);}
-
-/* ===== CONTACT ===== */
-#contact{padding:120px 0;background:linear-gradient(180deg,transparent,rgba(14,14,36,0.5),transparent);}
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;margin-top:60px;}
-.contact-info h3{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--txt);margin-bottom:12px;}
-.contact-info p{color:var(--txt2);font-size:14px;line-height:1.7;margin-bottom:32px;}
-.contact-links{display:flex;flex-direction:column;gap:10px;}
-.contact-link{display:flex;align-items:center;gap:14px;color:var(--txt2);text-decoration:none;font-size:14px;padding:14px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);transition:all 0.3s;}
-.contact-link:hover{border-color:rgba(0,229,255,0.3);color:var(--txt);background:var(--card2);transform:translateX(4px);}
-.contact-link-icon{width:38px;height:38px;border-radius:10px;background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.contact-link-icon i{font-size:17px;}
-.ci-email i{color:#ea4335;}
-.ci-wa i{color:#25d366;}
-.ci-gh i{color:#f0f0ff;}
-.ci-li i{color:#0077b5;}
-.ci-fv{background:rgba(29,191,115,0.06);border-color:rgba(29,191,115,0.15);}
-.ci-fv img{width:18px;filter:brightness(1.2);}
-.ci-kg i{color:#20beff;}
-.ci-dc i{color:#5865f2;}
-.contact-link-text strong{display:block;color:var(--txt);font-size:13px;font-weight:600;}
-.contact-link-text span{font-size:12px;color:var(--txt3);}
-.contact-form{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;position:relative;overflow:hidden;}
-.contact-form::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);}
-.form-group{margin-bottom:18px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.form-group label{display:block;font-size:12px;font-weight:600;color:var(--txt2);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;font-family:'JetBrains Mono',monospace;}
-.form-group input,.form-group textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:13px 16px;color:var(--txt);font-size:14px;font-family:'DM Sans',sans-serif;transition:all 0.3s;outline:none;resize:none;}
-.form-group input:focus,.form-group textarea:focus{border-color:rgba(0,229,255,0.3);background:rgba(0,229,255,0.03);box-shadow:0 0 0 3px rgba(0,229,255,0.06);}
-.form-group textarea{height:120px;}
-.btn-send{width:100%;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#03030a;padding:15px;border-radius:10px;font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all 0.3s;font-family:'DM Sans',sans-serif;box-shadow:0 0 24px rgba(0,229,255,0.2);display:flex;align-items:center;justify-content:center;gap:8px;}
-.btn-send:hover{box-shadow:0 0 40px rgba(0,229,255,0.35);transform:translateY(-2px);}
-
-/* ===== FOOTER ===== */
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:80px 5% 30px;position:relative;overflow:hidden;}
-.footer-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.02) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;margin-bottom:60px;position:relative;z-index:1;}
-.footer-brand .logo{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--txt);margin-bottom:14px;display:block;text-decoration:none;}
-.footer-brand .logo span{color:var(--cyan);}
-.footer-brand p{color:var(--txt2);font-size:13px;line-height:1.7;max-width:280px;margin-bottom:20px;}
-.footer-social{display:flex;gap:10px;flex-wrap:wrap;}
-.soc-btn{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.3s;}
-.soc-btn:hover{background:rgba(0,229,255,0.08);border-color:rgba(0,229,255,0.3);transform:translateY(-2px);}
-.soc-btn i{font-size:16px;}
-.soc-btn .fa-github{color:#f0f0ff;}
-.soc-btn .fa-linkedin{color:#0077b5;}
-.soc-btn .fa-kaggle{color:#20beff;}
-.soc-btn .fa-whatsapp{color:#25d366;}
-.soc-btn .fa-discord{color:#5865f2;}
-.footer-col h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--txt);margin-bottom:18px;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-col ul li a{color:var(--txt2);text-decoration:none;font-size:13px;transition:color 0.3s;display:flex;align-items:center;gap:6px;}
-.footer-col ul li a::before{content:'→';font-size:10px;color:var(--cyan);opacity:0;transition:opacity 0.3s;}
-.footer-col ul li a:hover{color:var(--txt);}
-.footer-col ul li a:hover::before{opacity:1;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:relative;z-index:1;}
-.footer-bottom p{color:var(--txt3);font-size:13px;}
-.footer-bottom span{color:var(--cyan);}
-
-/* ===== REVEAL ===== */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:1024px){
-  .footer-top{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:900px){
-  .hero-content{grid-template-columns:1fr;}
-  .hero-visual{display:none;}
-  .about-grid{grid-template-columns:1fr;}
-  .about-img-wrap{display:none;}
-  .process-grid{grid-template-columns:1fr 1fr;}
-  .process-grid::before{display:none;}
-  .contact-grid{grid-template-columns:1fr;}
-}
-@media(max-width:768px){
-  .nav-links,.nav-right{display:none;}
-  .nav-toggle{display:flex;}
-  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:260px;background:var(--bg2);padding:80px 30px 40px;z-index:999;gap:24px;border-left:1px solid var(--border);}
-  .nav-links.open~.nav-right{display:flex;position:fixed;bottom:30px;right:30px;z-index:1000;}
-  .services-grid,.projects-grid{grid-template-columns:1fr;}
-  .process-grid{grid-template-columns:1fr;}
-  .form-row{grid-template-columns:1fr;}
-  .footer-top{grid-template-columns:1fr;}
-  .docs-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:480px){
-  .hero-h1 .highlight{ min-width:unset; width:100%; }
-  .hero-btns{flex-direction:column;}
-  .about-mini-cards{grid-template-columns:1fr;}
-  .docs-grid{grid-template-columns:1fr;}
-  .cta-btns{flex-direction:column;align-items:center;}
-}
+:root{--bg:#0a0c12;--s:#11141d;--s2:#171b27;--ln:#232838;--tx:#eceff7;--mu:#8b93a7;--ac:#7c9cff;--fl:#ffc857;--r:16px;--serif:'Instrument Serif',Georgia,serif}
+[data-theme=light]{--bg:#f6f7fb;--s:#fff;--s2:#eef0f7;--ln:#dfe3ee;--tx:#12151f;--mu:#5b6478;--ac:#3b5bdb;--fl:#b7791f}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.65 Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .3s}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:6px}
+.w{width:min(1140px,92%);margin:0 auto}
+section{padding:96px 0}
+h2{font:400 clamp(34px,5vw,54px)/1.05 var(--serif);letter-spacing:-.01em;margin-bottom:14px}
+.sub{color:var(--mu);max-width:58ch;margin-bottom:44px}
+#pg{position:fixed;top:0;left:0;height:3px;width:0;background:var(--ac);z-index:60}
+nav{position:sticky;top:0;z-index:40;border-bottom:1px solid transparent;transition:.3s}
+nav.sc{background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-color:var(--ln)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font:400 26px var(--serif)}.logo i{color:var(--ac)}
+.lk{display:flex;gap:4px;font-size:15px}
+.lk a{padding:6px 14px;border-radius:99px;color:var(--mu);transition:.2s}
+.lk a:hover{color:var(--tx)}.lk a.on{color:var(--tx);background:var(--s2)}
+.nr{display:flex;gap:10px;align-items:center}
+.ib{width:40px;height:40px;border-radius:50%;border:1px solid var(--ln);background:var(--s);cursor:pointer;display:grid;place-items:center;transition:.2s}
+.ib:hover{border-color:var(--ac)}
+.mn{display:none}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:99px;font-weight:500;font-size:15px;border:1px solid var(--ln);background:var(--s);cursor:pointer;transition:.2s}
+.btn:hover{border-color:var(--ac);transform:translateY(-1px)}.btn:active{transform:none}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#0a0c12}
+[data-theme=light] .btn.p{color:#fff}
+.btn.sm{padding:8px 16px;font-size:14px}
+/* hero */
+.hero{padding:64px 0 80px}
+.hero .w{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.hero>.w>*{animation:up .8s both}.hero>.w>*:nth-child(2){animation-delay:.15s}
+@keyframes up{from{opacity:0;transform:translateY(24px)}}
+.st{display:inline-flex;gap:10px;align-items:center;font-size:14px;color:var(--mu);padding:6px 14px;border:1px solid var(--ln);border-radius:99px;margin-bottom:26px}
+.st b{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 4px #4ade8030}
+h1{font:400 clamp(46px,7.4vw,92px)/.98 var(--serif);letter-spacing:-.02em;margin-bottom:24px}
+h1 em{color:var(--ac)}
+.lead{font-size:19px;color:var(--mu);max-width:50ch;margin-bottom:30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.so{display:flex;gap:10px}
+.so a{font-size:14px;color:var(--mu);border-bottom:1px solid var(--ln);padding-bottom:1px}.so a:hover{color:var(--tx);border-color:var(--ac)}
+.ph{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;border:1px solid var(--ln);background:var(--s)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.bx{position:absolute;border:1.5px solid var(--ac);border-radius:4px}
+.bx::after,.lb{font:500 11px 'Geist Mono',monospace}
+.bx::after{content:attr(data-l);position:absolute;top:-1.5px;left:-1.5px;transform:translateY(-100%);background:var(--ac);color:#0a0c12;padding:2px 7px;border-radius:4px 4px 0 0;white-space:nowrap}
+.bx.f{inset:14% 20% 28% 20%}
+.bx.e{inset:34% 28% 52% 28%;border-color:var(--fl);animation:sc 6s infinite}
+.bx.e::after{background:var(--fl)}
+@keyframes sc{0%,35%{transform:none}45%,70%{transform:translateX(-10px)}80%,100%{transform:none}}
+/* reticle */
+#rt{position:fixed;z-index:50;pointer-events:none;border:1.5px solid var(--ac);border-radius:6px;opacity:0;transition:all .14s ease-out,opacity .2s}
+#rt span{position:absolute;top:-1.5px;left:-1.5px;transform:translateY(-100%);background:var(--ac);color:#0a0c12;font:500 11px 'Geist Mono',monospace;padding:2px 7px;border-radius:5px 5px 0 0;white-space:nowrap}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:var(--r);overflow:hidden;margin-top:56px}
+.stats div{background:var(--s);padding:26px 22px}
+.stats b{display:block;font:400 48px/1 var(--serif)}.stats span{color:var(--mu);font-size:14px}
+/* cards */
+.card{background:var(--s);border:1px solid var(--ln);border-radius:var(--r);padding:26px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--ac);transform:translateY(-3px)}
+.card h3{font:500 19px Geist;margin-bottom:8px}.card p{color:var(--mu);font-size:15px}
+.tg{display:flex;flex-wrap:wrap;gap:7px}
+.tg span{font-size:12.5px;padding:3px 11px;border-radius:99px;background:var(--s2);border:1px solid var(--ln);color:var(--mu)}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{padding:8px 18px;border-radius:99px;border:1px solid var(--ln);background:none;cursor:pointer;color:var(--mu);transition:.2s}
+.tabs button:hover{color:var(--tx)}.tabs button.on{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+/* projects */
+.fp{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.fp .card{display:flex;flex-direction:column;gap:14px;padding:30px}
+.fp h3{font:400 32px/1.1 var(--serif)}
+.lv{font:500 12px 'Geist Mono',monospace;color:var(--fl)}
+.rw{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:18px}
+.pj{padding:0;overflow:hidden;cursor:pointer;text-align:left;width:100%}
+.pj .m{aspect-ratio:16/10;overflow:hidden;background:var(--s2)}
+.pj .m img,.pj .m video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.pj:hover .m img,.pj:hover .m video{transform:scale(1.06)}
+.pj .t{padding:16px 18px 20px;display:grid;gap:8px}
+.pj h3{margin:0}
+/* timeline */
+.tl{display:grid;gap:18px}
+.tl .card{display:grid;grid-template-columns:150px 1fr;gap:24px}
+.tl small{color:var(--ac);font:500 13px 'Geist Mono',monospace}
+/* dialog */
+dialog{margin:auto;width:min(760px,92%);max-height:90vh;overflow:auto;background:var(--s);color:var(--tx);border:1px solid var(--ln);border-radius:20px;padding:0}
+dialog::backdrop{background:#000a;backdrop-filter:blur(4px)}
+dialog .m{aspect-ratio:16/9;background:var(--s2)}dialog .m img,dialog .m video{width:100%;height:100%;object-fit:cover;display:block}
+dialog .b{padding:26px 28px 30px;display:grid;gap:14px}
+dialog h3{font:400 34px/1.1 var(--serif)}
+dialog h4{font:500 12px 'Geist Mono',monospace;color:var(--ac);margin-bottom:2px}
+dialog p{color:var(--mu)}
+/* contact */
+.cf{display:grid;gap:14px}
+.cf label{display:grid;gap:6px;font-size:14px;color:var(--mu)}
+.cf input,.cf textarea{font:inherit;color:var(--tx);background:var(--s);border:1px solid var(--ln);border-radius:12px;padding:12px 14px;width:100%}
+.cf input:focus,.cf textarea:focus{outline:none;border-color:var(--ac)}
+.cf [aria-invalid=true]{border-color:#ef4444}
+.er{color:#ef4444;font-size:13px;min-height:0}
+#ok{display:none;padding:12px 14px;border-radius:12px;background:#4ade8018;border:1px solid #4ade8060}
+.ct{display:grid;gap:12px;align-content:start}
+.ct a,.ct button{display:flex;justify-content:space-between;gap:12px;padding:16px 20px;border:1px solid var(--ln);border-radius:var(--r);background:var(--s);cursor:pointer;text-align:left;transition:.2s}
+.ct a:hover,.ct button:hover{border-color:var(--ac)}.ct small{color:var(--mu)}
+footer{border-top:1px solid var(--ln);padding:36px 0}
+footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--mu);font-size:14px}
+footer nav{all:unset;display:flex;gap:18px}
+@media(max-width:860px){
+.hero .w,.fp,.g2,.tl .card{grid-template-columns:1fr}
+.ph{max-width:320px}.stats{grid-template-columns:1fr 1fr}
+.lk{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--bg);padding:14px 4%;border-bottom:1px solid var(--ln)}
+.lk.o{display:flex}.mn{display:grid}.nr .btn{display:none}
+section{padding:68px 0}}
+@media(pointer:coarse),(prefers-reduced-motion:reduce){#rt{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<div id="pg"></div><div id="rt"><span></span></div>
+<nav id="nv"><div class="w">
+<a class="logo" href="#home" aria-label="Amir Aziz, home">amir<i>.</i>aziz</a>
+<div class="lk" id="lk"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+<div class="nr"><button class="ib" id="th" aria-label="Switch light or dark theme">◐</button><a class="btn p sm" href="#contact">Hire me</a><button class="ib mn" id="mb" aria-label="Open menu" aria-expanded="false">☰</button></div>
+</div></nav>
 
-<canvas id="particles"></canvas>
+<header class="hero" id="home"><div class="w">
+<div>
+<div class="st"><b></b>Open to full-time roles and freelance work</div>
+<h1 data-det="headline 0.99">I build systems that <em>see, track and flag</em> what matters.</h1>
+<p class="lead">Amir Aziz. Data Scientist and Computer Vision Engineer, BS Data Science from UET Peshawar (2026). I take models from the notebook to live web apps.</p>
+<div class="cta"><a class="btn p" href="#projects">View projects</a><a class="btn" href="documents/Amir_Aziz_Resume.pdf" download>Download CV</a><a class="btn" href="#contact">Contact me</a></div>
+<div class="so"><a href="https://github.com/AmirAziz1221" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/amir-aziz-2868aa266/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.kaggle.com/amirazizdatascience" target="_blank" rel="noopener">Kaggle</a><a href="https://www.fiverr.com/users/amiraziz1221/" target="_blank" rel="noopener">Fiverr</a></div>
+</div>
+<div class="ph" data-det="person 0.99"><img src="images/mypicture.jpg" alt="Portrait of Amir Aziz"><span class="bx f" data-l="face 0.99"></span><span class="bx e" data-l="gaze: screen"></span></div>
+</div></header>
 
-<!-- ===== NAVBAR ===== -->
-<nav id="navbar">
-  <a href="#home" class="nav-logo">Amir<span>.</span>Aziz</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="documents/Amir_Aziz_Resume.pdf" target="_blank" class="btn-cv">
-      <i class="fas fa-download"></i> Download CV
-    </a>
-    <a href="mailto:amiraziz.uet@gmail.com" class="btn-hire">Hire Me</a>
-  </div>
-  <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
+<section id="about" style="padding-top:24px"><div class="w">
+<h2>Engineer first, researcher always.</h2>
+<p class="sub">I graduated in 2026 and work as a Computer Vision Engineer Intern at NCAI, UET Peshawar. I like systems that run in the real world: monitoring exams, inspecting infrastructure, tracking traffic. I care that models are tested, explained and easy to use.</p>
+<div class="stats" id="st">
+<div data-det="projects"><b data-n="10">0</b><span>Projects built</span></div>
+<div data-det="live"><b data-n="2">0</b><span>Live demos online</span></div>
+<div data-det="video"><b data-n="4">0</b><span>Video case demos</span></div>
+<div data-det="role"><b data-n="1">0</b><span>CV internship at NCAI</span></div>
+</div></div></section>
 
-<!-- ===== HERO ===== -->
-<section id="home">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-glow hero-glow-1"></div>
-  <div class="hero-glow hero-glow-2"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        Available for Opportunities
-      </div>
-      <h1 class="hero-h1">
-        Building<br>
-        <span class="highlight">Computer Vision</span><br>
-        Solutions with Amir Aziz
-      </h1>
-      <p class="hero-p">
-        I am Amir Aziz, a Data Science graduate from UET Peshawar and Computer Vision Engineer Intern at NCAI. I develop AI-powered solutions for object detection, segmentation, classification, pose estimation, tracking, and real-world visual intelligence systems.
-      </p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-primary">
-          <i class="fas fa-play"></i> View My Work
-        </a>
-        <a href="#contact" class="btn-secondary">
-          <i class="fas fa-comment-dots"></i> Contact Me
-        </a>
-      </div>
-      <div class="hero-contact">
-        <div class="hero-contact-item">
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:amiraziz.uet@gmail.com">amiraziz.uet@gmail.com</a>
-        </div>
-        <div class="hero-contact-item">
-          <i class="fab fa-whatsapp"></i>
-          <a href="https://wa.me/923049274032" target="_blank">WhatsApp: +92 304 9274032</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="globe-wrap">
-        <div class="globe-ring ring3"></div>
-        <div class="globe-ring ring2"></div>
-        <div class="globe-ring ring1"></div>
-        <div class="globe-core">
-          <div class="globe-eye">
-            <div class="globe-pupil"></div>
-          </div>
-        </div>
-        <div class="float-tag ft1">Object Detection</div>
-        <div class="float-tag ft2">Segmentation</div>
-        <div class="float-tag ft3">Tracking</div>
-        <div class="float-tag ft4">Deep Learning</div>
-        <div class="float-tag ft5">YOLO</div>
-        <div class="float-tag ft6">Generative AI</div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="skills" style="background:var(--s);border-block:1px solid var(--ln)"><div class="w">
+<h2>The toolbox</h2><p class="sub">Grouped by what I use them for.</p>
+<div class="tabs" id="sk-t"></div><div class="g3" id="sk"></div>
+</div></section>
 
-<!-- ===== ABOUT ===== -->
-<section id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-img-wrap reveal">
-        <div class="about-photo-frame">
-          <!-- =====================================================
-               ADD YOUR PHOTO HERE
-               Replace "images/amir-profile.jpg" with your actual photo file name
-               Put the photo inside the "images/" folder
-               ===================================================== -->
-          <img src="images\mypicture.jpg" alt="Amir Aziz"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-               style="width:100%;height:100%;object-fit:cover;border-radius:20px;">
-          <div class="about-photo-placeholder" style="display:none;">AA</div>
-        </div>
-        <div class="about-mini-cards">
-          <div class="about-mini">
-            <div class="about-mini-icon">🎓</div>
-            <div class="about-mini-title">BS Data Science</div>
-            <div class="about-mini-sub">UET Peshawar · 2026</div>
-          </div>
-          <div class="about-mini">
-            <div class="about-mini-icon">🤖</div>
-            <div class="about-mini-title">CV Engineer Intern</div>
-            <div class="about-mini-sub">NCAI · UET Peshawar</div>
-          </div>
-          <div class="about-mini">
-            <div class="about-mini-icon">🧠</div>
-            <div class="about-mini-title">AI & Deep Learning</div>
-            <div class="about-mini-sub">Enthusiast</div>
-          </div>
-          <div class="about-mini">
-            <div class="about-mini-icon">💼</div>
-            <div class="about-mini-title">Freelance AI Dev</div>
-            <div class="about-mini-sub">Available for projects</div>
-          </div>
-        </div>
-      </div>
-      <div class="about-text reveal">
-        <span class="section-label">About Me</span>
-        <h2 class="section-title">Passionate About <span>Computer Vision</span> & AI</h2>
-        <p class="section-sub">
-          I am Amir Aziz, a passionate Data Science graduate from the University of Engineering and Technology, Peshawar. My main focus is Computer Vision and Artificial Intelligence. I work on real-world AI systems including object detection, image segmentation, image classification, pose estimation, object tracking, oriented bounding box detection, and AI-based report generation.
-        </p>
-        <p class="section-sub" style="margin-top:14px;">
-          I am also working as a Computer Vision Engineer Intern at the National Center of Artificial Intelligence — NCAI, UET Peshawar, where I apply deep learning and computer vision techniques to solve practical problems.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="projects"><div class="w">
+<h2>Selected work</h2><p class="sub">Two live systems first, then the rest. Click any project for details.</p>
+<div class="fp">
+<article class="card" data-det="project 0.98"><span class="lv">LIVE · COMPUTER VISION</span><h3>TestTrick: AI test proctoring</h3>
+<p>A hiring assessment platform that watches for cheating. The camera tracks the candidate's face and eyes, a short calibration dot teaches it where the screen is, and if they look away it saves evidence clips and alerts the hiring team for review.</p>
+<div class="tg"><span>Face tracking</span><span>Eye gaze</span><span>Evidence clips</span><span>Alerts</span></div>
+<div class="rw"><a class="btn p sm" href="https://testtrickdemo-production-131e.up.railway.app/" target="_blank" rel="noopener">Open live demo</a><a class="btn sm" href="https://github.com/AmirAziz1221" target="_blank" rel="noopener">GitHub</a></div></article>
+<article class="card" data-det="project 0.97"><span class="lv">LIVE · INFRASTRUCTURE AI</span><h3>CivilScan AI: defect detection</h3>
+<p>Detects cracks and structural damage in infrastructure images to speed up civil inspections and reduce manual checking.</p>
+<div class="tg"><span>YOLO</span><span>Defect detection</span><span>Generative AI</span><span>Reports</span></div>
+<div class="rw"><a class="btn p sm" href="https://civil-ai-inspection.vercel.app/" target="_blank" rel="noopener">Open live demo</a><a class="btn sm" href="https://github.com/AmirAziz1221" target="_blank" rel="noopener">GitHub</a></div></article>
+</div>
+<div class="tabs" id="pj-t" style="margin-top:36px"></div><div class="pg" id="pj"></div>
+</div></section>
 
-<!-- ===== SKILLS ===== -->
-<section id="skills">
-  <div class="section-inner">
-    <div class="skills-head reveal">
-      <span class="section-label">Expertise</span>
-      <h2 class="section-title">My Technical <span>Skills</span></h2>
-    </div>
-    <div class="skills-tabs reveal">
-    <button class="tab-btn active" onclick="filterSkills('all',this)">All Skills</button>
-    <button class="tab-btn" onclick="filterSkills('cv',this)">Computer Vision</button>
-    <button class="tab-btn" onclick="filterSkills('ai',this)">AI / ML</button>
-    <button class="tab-btn" onclick="filterSkills('tools',this)">Tools & Frameworks</button>
-    <button class="tab-btn" onclick="filterSkills('ds',this)">Data Science</button>
-    </div>
-    <div class="skills-grid" id="skillsGrid"></div>
-  </div>
-</section>
+<section id="experience" style="background:var(--s);border-block:1px solid var(--ln)"><div class="w">
+<h2>Experience and education</h2><p class="sub">Where I've worked and studied.</p>
+<div class="tl">
+<div class="card" data-det="role 0.98"><small>Current</small><div><h3>Computer Vision Engineer Intern</h3><p>National Center of Artificial Intelligence (NCAI), UET Peshawar. Building detection, segmentation, tracking and pose estimation systems on image and video data.</p></div></div>
+<div class="card" data-det="degree 0.99"><small>Completed 2026</small><div><h3>BS Data Science</h3><p>University of Engineering and Technology, Peshawar. Focus on machine learning, computer vision and data analytics.</p></div></div>
+</div>
+<div class="rw" style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+<a class="btn sm" href="documents/Amir_Aziz_Resume.pdf" target="_blank">Resume</a><a class="btn sm" href="documents/Amir_Aziz_Degree.pdf" target="_blank">Degree certificate</a><a class="btn sm" href="documents/Amir_Aziz_Transcript.pdf" target="_blank">Transcript</a><a class="btn sm" href="documents/Amir_Aziz_NCAI_Letter.pdf" target="_blank">Internship letter</a></div>
+</div></section>
 
-<!-- ===== SERVICES ===== -->
-<section id="services">
-  <div class="section-inner">
-    <div class="reveal">
-      <span class="section-label">What I Do</span>
-      <h2 class="section-title">Services I <span>Offer</span></h2>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-num">Service 01</div>
-        <div class="service-icon-wrap"><i class="fas fa-eye"></i></div>
-        <div class="service-title">Computer Vision Development</div>
-        <div class="service-desc">I build AI-powered vision systems for detecting, tracking, classifying, and analyzing objects in images and videos using state-of-the-art deep learning architectures.</div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">Service 02</div>
-        <div class="service-icon-wrap"><i class="fas fa-crosshairs"></i></div>
-        <div class="service-title">Object Detection & Tracking</div>
-        <div class="service-desc">Real-time detection and tracking systems using YOLO and other modern architectures for surveillance, traffic monitoring, and intelligent transportation applications.</div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">Service 03</div>
-        <div class="service-icon-wrap"><i class="fas fa-vector-square"></i></div>
-        <div class="service-title">Image Segmentation</div>
-        <div class="service-desc">Segmentation models for flood area detection, infrastructure damage analysis, medical-style image analysis, and precise object boundary detection tasks.</div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">Service 04</div>
-        <div class="service-icon-wrap"><i class="fas fa-running"></i></div>
-        <div class="service-title">Pose Estimation</div>
-        <div class="service-desc">Pose estimation systems for sports analytics, human activity recognition, fitness tracking, and biomechanical movement analysis in real-time applications.</div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">Service 05</div>
-        <div class="service-icon-wrap"><i class="fas fa-chart-line"></i></div>
-        <div class="service-title">Data Science Projects</div>
-        <div class="service-desc">Data analysis, dashboard creation, predictive modeling, and meaningful insight extraction from real-world datasets for business and research use cases.</div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">Service 06</div>
-        <div class="service-icon-wrap"><i class="fas fa-file-alt"></i></div>
-        <div class="service-title">AI Report Generation</div>
-        <div class="service-desc">Combining computer vision with Generative AI to automatically generate detailed inspection and analysis reports from detected objects, defects, or visual patterns.</div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="services"><div class="w">
+<h2>What I can build for you</h2><p class="sub">From a prototype to something your team can use.</p>
+<div class="g3" id="sv"></div>
+</div></section>
 
-<!-- ===== PROJECTS ===== -->
-<section id="projects">
-  <div class="section-inner">
-    <div class="projects-head reveal">
-      <span class="section-label">Portfolio</span>
-      <h2 class="section-title">Featured <span>Projects</span></h2>
-      <p class="section-sub">Real-world AI and computer vision systems built with modern deep learning frameworks.</p>
-    </div>
-    <div class="projects-grid">
+<section id="contact" style="background:var(--s);border-top:1px solid var(--ln)"><div class="w">
+<h2>Let's build something intelligent.</h2><p class="sub">Hiring, or have a vision problem to solve? Send a message and I will reply.</p>
+<div class="g2">
+<form class="cf" id="cf" novalidate>
+<label>Name<input id="n" autocomplete="name" required></label><span class="er" id="en"></span>
+<label>Email<input id="e" type="email" autocomplete="email" required></label><span class="er" id="ee"></span>
+<label>Subject<input id="s"></label>
+<label>Message<textarea id="m" rows="5" required></textarea></label><span class="er" id="em"></span>
+<button class="btn p" type="submit" style="justify-self:start">Send message</button>
+<div id="ok" role="status">Your email app is opening with the message. If it doesn't, write to amiraziz.uet@gmail.com.</div>
+</form>
+<div class="ct">
+<button id="cp" data-det="email 0.99"><span>amiraziz.uet@gmail.com</span><small id="cpt">Copy</small></button>
+<a href="https://wa.me/923049274032" target="_blank" rel="noopener" data-det="whatsapp"><span>WhatsApp</span><small>+92 304 9274032</small></a>
+<a href="https://www.linkedin.com/in/amir-aziz-2868aa266/" target="_blank" rel="noopener" data-det="linkedin"><span>LinkedIn</span><small>amir-aziz</small></a>
+<a href="https://github.com/AmirAziz1221" target="_blank" rel="noopener" data-det="github"><span>GitHub</span><small>AmirAziz1221</small></a>
+<a href="https://www.fiverr.com/users/amiraziz1221/" target="_blank" rel="noopener" data-det="fiverr"><span>Fiverr</span><small>Hire me</small></a>
+</div></div>
+</div></section>
 
-      <!-- PROJECT 1 -->
-      <div class="project-card reveal">
-        <div class="project-thumb">
-          <video autoplay muted loop playsinline
-          style="width:100%;height:100%;object-fit:cover;">
-            <source src="videos/FloodDetection.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Flood Segmentation & Detection</div>
-          <div class="project-desc">AI-based system for detecting and segmenting flood-affected areas from images or satellite-style data, aiding disaster monitoring and emergency response.</div>
-          <div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">OpenCV</span><span class="tech-tag">Segmentation</span><span class="tech-tag">YOLO</span></div>
-          <div class="project-links">
-            <a href="https://github.com/AmirAziz1221" target="_blank" class="proj-btn primary"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
+<footer><div class="w"><span>© 2026 Amir Aziz. Computer vision and AI.</span>
+<nav aria-label="Footer"><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+<a class="btn sm" href="#home">Back to top ↑</a></div></footer>
 
-      <!-- PROJECT 2 -->
-      <div class="project-card reveal">
-        <div class="project-thumb">
-          <video autoplay muted loop playsinline
-          style="width:100%;height:100%;object-fit:cover;">
-            <source src="videos/VehicleDetection.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Vehicle Detection & Tracking</div>
-          <div class="project-desc">Real-time vehicle detection and tracking system for traffic monitoring, road surveillance, and intelligent transportation applications.</div>
-          <div class="tech-tags"><span class="tech-tag">YOLO</span><span class="tech-tag">OpenCV</span><span class="tech-tag">Tracking</span><span class="tech-tag">Python</span></div>
-          <div class="project-links">
-            <a href="https://github.com/AmirAziz1221" target="_blank" class="proj-btn primary"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 3 -->
-       <div class="project-card reveal">
-        <div class="project-thumb">
-          <video autoplay muted loop playsinline
-         style="width:100%;height:100%;object-fit:cover;">
-           <source src="videos/FootBall.mp4" type="video/mp4">
-        </video>
-      </div>
-        <div class="project-body">
-          <div class="project-title">Football Player Tracking & Mini Map</div>
-          <div class="project-desc">Sports analytics project detecting football players, tracking movement, and generating a mini-map visualization for match analysis and coaching insights.</div>
-          <div class="tech-tags"><span class="tech-tag">Tracking</span><span class="tech-tag">Pose Est.</span><span class="tech-tag">Python</span><span class="tech-tag">OpenCV</span></div>
-          <div class="project-links">
-            <a href="https://github.com/AmirAziz1221" target="_blank" class="proj-btn primary"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 4 -->
-      <div class="project-card reveal">
-        <div class="project-thumb">
-          <video autoplay muted loop playsinline
-          style="width:100%;height:100%;object-fit:cover;">
-            <source src="videos/DefectDetection.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Infrastructure Defect Detection & AI Reports</div>
-          <div class="project-desc">Computer vision + Generative AI system that detects infrastructure defects such as cracks and structural damage, then auto-generates detailed inspection reports.</div>
-          <div class="tech-tags"><span class="tech-tag">YOLO</span><span class="tech-tag">Generative AI</span><span class="tech-tag">Python</span><span class="tech-tag">Reports</span></div>
-          <div class="project-links">
-            <a href="https://github.com/AmirAziz1221" target="_blank" class="proj-btn primary"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 5 -->
-      <div class="project-card reveal">
-        <div class="project-thumb">
-          <!-- ADD: images/playstore-analysis.jpg -->
-          <img src="images/playstore-analysis.png" alt="Play Store Analysis"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="project-thumb-fallback" style="display:none;">
-            <div class="project-thumb-fallback-bg pt-play"></div>
-            <div class="project-thumb-fallback-icon">📱</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Play Store App Analysis</div>
-          <div class="project-desc">Data science project analyzing Play Store data to understand ratings, reviews, categories, installs, and app performance trends with rich visualizations.</div>
-          <div class="tech-tags"><span class="tech-tag">Pandas</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">Seaborn</span><span class="tech-tag">EDA</span></div>
-          <div class="project-links">
-            <a href="https://www.kaggle.com/amirazizdatascience" target="_blank" class="proj-btn primary"><i class="fab fa-kaggle"></i> Kaggle</a>
-            <a href="https://github.com/AmirAziz1221" target="_blank" class="proj-btn"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 6 -->
-      <div class="project-card reveal">
-        <div class="project-thumb">
-          <!-- ADD: images/classification.jpg -->
-          <img src="images/classification.png" alt="Object Classification"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="project-thumb-fallback" style="display:none;">
-            <div class="project-thumb-fallback-bg pt-class"></div>
-            <div class="project-thumb-fallback-icon">🏷️</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Object Classification System</div>
-          <div class="project-desc">Deep learning-based image classification system using trained CNN neural network models to categorize images into multiple classes with high accuracy.</div>
-          <div class="tech-tags"><span class="tech-tag">CNN</span><span class="tech-tag">PyTorch</span><span class="tech-tag">Python</span><span class="tech-tag">Classification</span></div>
-          <div class="project-links">
-            <a href="https://github.com/AmirAziz1221" target="_blank" class="proj-btn primary"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 7 -->
-      <div class="project-card reveal">
-        <div class="project-thumb">
-          <!-- ADD: images/detection-dashboard.png -->
-          <img src="images/detection-dashboard.png" alt="Detection Dashboard"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="project-thumb-fallback" style="display:none;">
-            <div class="project-thumb-fallback-bg pt-dashboard"></div>
-            <div class="project-thumb-fallback-icon">🖥️</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Real-Time Object Detection Dashboard</div>
-          <div class="project-desc">Web-based dashboard where users upload images or videos and receive real-time AI-based object detection results through an interactive interface.</div>
-          <div class="tech-tags"><span class="tech-tag">YOLO</span><span class="tech-tag">Streamlit</span><span class="tech-tag">Flask</span><span class="tech-tag">OpenCV</span></div>
-          <div class="project-links">
-            <a href="https://github.com/AmirAziz1221" target="_blank" class="proj-btn primary"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 8 -->
-      <div class="project-card reveal">
-        <div class="project-thumb">
-          <!-- ADD: images/pose-estimation.jpg -->
-          <img src="images/pose-estimation.jpg" alt="Pose Estimation"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="project-thumb-fallback" style="display:none;">
-            <div class="project-thumb-fallback-bg pt-pose"></div>
-            <div class="project-thumb-fallback-icon">🤸</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Human Pose Estimation System</div>
-          <div class="project-desc">Computer vision system detecting human body keypoints for sports performance analysis, fitness tracking, and human activity recognition applications.</div>
-          <div class="tech-tags"><span class="tech-tag">Pose Est.</span><span class="tech-tag">OpenCV</span><span class="tech-tag">Deep Learning</span><span class="tech-tag">Python</span></div>
-          <div class="project-links">
-            <a href="https://github.com/AmirAziz1221" target="_blank" class="proj-btn primary"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== DOCUMENTS ===== -->
-<section id="documents">
-  <div class="section-inner">
-    <div class="reveal">
-      <span class="section-label">Downloads</span>
-      <h2 class="section-title">My <span>Documents</span></h2>
-      <p class="section-sub">Download my resume, academic transcripts, and certifications.</p>
-    </div>
-    <div class="docs-grid">
-
-      <!-- =====================================================
-           ADD YOUR RESUME: documents/Amir_Aziz_Resume.pdf
-           ===================================================== -->
-      <a href="documents/Amir_Aziz_Resume.pdf" target="_blank" class="doc-card reveal">
-        <div class="doc-icon"><i class="fas fa-file-pdf" style="color:#ef4444;"></i></div>
-        <div>
-          <div class="doc-title">Resume / CV</div>
-          <div class="doc-sub">Amir Aziz · Updated 2026</div>
-        </div>
-        <div class="doc-action"><i class="fas fa-download" style="color:var(--cyan);"></i></div>
-      </a>
-
-      <!-- =====================================================
-           ADD YOUR TRANSCRIPT: documents/Amir_Aziz_Transcript.pdf
-           ===================================================== -->
-      <a href="documents/Amir_Aziz_Transcript.pdf" target="_blank" class="doc-card reveal">
-        <div class="doc-icon"><i class="fas fa-graduation-cap" style="color:var(--cyan);"></i></div>
-        <div>
-          <div class="doc-title">Academic Transcript</div>
-          <div class="doc-sub">BS Data Science · UET Peshawar</div>
-        </div>
-        <div class="doc-action"><i class="fas fa-download" style="color:var(--cyan);"></i></div>
-      </a>
-
-      <!-- =====================================================
-           ADD YOUR DEGREE: documents/Amir_Aziz_Degree.pdf
-           ===================================================== -->
-      <a href="documents/Amir_Aziz_Degree.pdf" target="_blank" class="doc-card reveal">
-        <div class="doc-icon"><i class="fas fa-scroll" style="color:var(--orange);"></i></div>
-        <div>
-          <div class="doc-title">Degree Certificate</div>
-          <div class="doc-sub">BS Data Science · July 2026</div>
-        </div>
-        <div class="doc-action"><i class="fas fa-download" style="color:var(--cyan);"></i></div>
-      </a>
-
-      <!-- =====================================================
-           ADD INTERNSHIP LETTER: documents/Amir_Aziz_NCAI_Letter.pdf
-           ===================================================== -->
-      <a href="documents/Amir_Aziz_NCAI_Letter.pdf" target="_blank" class="doc-card reveal">
-        <div class="doc-icon"><i class="fas fa-building" style="color:var(--purple);"></i></div>
-        <div>
-          <div class="doc-title">Internship Letter</div>
-          <div class="doc-sub">NCAI · UET Peshawar</div>
-        </div>
-        <div class="doc-action"><i class="fas fa-download" style="color:var(--cyan);"></i></div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROCESS ===== -->
-<section id="process">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center">
-      <span class="section-label" style="justify-content:center;">How I Work</span>
-      <h2 class="section-title">My Work <span>Process</span></h2>
-    </div>
-    <div class="process-grid">
-      <div class="process-card reveal">
-        <div class="process-num">01</div>
-        <div class="process-title">Research & Understanding</div>
-        <div class="process-desc">I understand the problem, dataset, business goal, and technical requirements before starting development to ensure the right solution is built.</div>
-      </div>
-      <div class="process-card reveal">
-        <div class="process-num" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2);color:var(--purple)">02</div>
-        <div class="process-title">Data Preparation</div>
-        <div class="process-desc">I clean, label, preprocess, and organize data to make it suitable for model training and evaluation with the highest quality standards.</div>
-      </div>
-      <div class="process-card reveal">
-        <div class="process-num" style="background:rgba(59,130,246,0.06);border-color:rgba(59,130,246,0.2);color:var(--blue)">03</div>
-        <div class="process-title">Model Development</div>
-        <div class="process-desc">I train and optimize computer vision or machine learning models using modern AI frameworks to achieve state-of-the-art performance.</div>
-      </div>
-      <div class="process-card reveal">
-        <div class="process-num" style="background:rgba(255,107,34,0.06);border-color:rgba(255,107,34,0.2);color:var(--orange)">04</div>
-        <div class="process-title">Testing & Deployment</div>
-        <div class="process-desc">I test model performance rigorously, improve accuracy, and prepare the solution for real-world use or production deployment.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== EXPERIENCE ===== -->
-<section id="experience">
-  <div class="section-inner">
-    <div class="reveal">
-      <span class="section-label">Background</span>
-      <h2 class="section-title">Experience & <span>Education</span></h2>
-    </div>
-    <div class="exp-timeline">
-      <div class="exp-item reveal">
-        <div class="exp-type">Internship · Current</div>
-        <div class="exp-role">Computer Vision Engineer Intern</div>
-        <div class="exp-org">National Center of Artificial Intelligence — NCAI, UET Peshawar</div>
-        <div class="exp-desc">Working on AI-based visual intelligence systems involving object detection, segmentation, classification, pose estimation, tracking, and automated analysis of image and video data. Applying deep learning techniques to solve real-world computer vision problems.</div>
-      </div>
-      <div class="exp-item reveal">
-        <div class="exp-type">Education · Completed July 2026</div>
-        <div class="exp-role">BS Data Science</div>
-        <div class="exp-org">University of Engineering and Technology, Peshawar</div>
-        <div class="exp-desc">Completed BS Data Science in July 2026 with a strong focus on artificial intelligence, machine learning, computer vision, and data analytics. Developed practical skills through multiple real-world AI projects spanning detection, segmentation, pose estimation, and data analysis systems.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CTA ===== -->
-<section id="cta">
-  <div class="cta-glow-bg"></div>
-  <div class="section-inner">
-    <div class="cta-box reveal">
-      <span class="section-label" style="justify-content:center;">Let's Collaborate</span>
-      <h2 class="cta-title">Let's Build Intelligent AI<br>Solutions Together</h2>
-      <p class="cta-sub">Available for computer vision projects, AI development, data science tasks, research collaboration, freelance projects, and full-time opportunities.</p>
-      <div class="cta-btns">
-        <a href="https://www.fiverr.com/sellers/amiraziz1221" target="_blank" class="btn-cta-primary">
-          <i class="fas fa-briefcase"></i> Hire Me on Fiverr
-        </a>
-        <a href="https://wa.me/923049274032" target="_blank" class="btn-cta-outline">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-        <a href="https://github.com/AmirAziz1221" target="_blank" class="btn-cta-outline">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="reveal">
-      <span class="section-label">Get In Touch</span>
-      <h2 class="section-title">Contact <span>Me</span></h2>
-    </div>
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="contact-info">
-          <h3>Let's work together</h3>
-          <p>Have a project in mind? Looking for a computer vision engineer or data scientist? Reach out through any channel below.</p>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:amiraziz.uet@gmail.com" class="contact-link">
-            <div class="contact-link-icon ci-email"><i class="fas fa-envelope"></i></div>
-            <div class="contact-link-text"><strong>Email</strong><span>amiraziz.uet@gmail.com</span></div>
-          </a>
-          <a href="https://wa.me/923049274032" target="_blank" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(37,211,102,0.06);border-color:rgba(37,211,102,0.2);"><i class="fab fa-whatsapp" style="color:#25d366;font-size:18px;"></i></div>
-            <div class="contact-link-text"><strong>WhatsApp</strong><span>+92 304 9274032</span></div>
-          </a>
-          <a href="https://github.com/AmirAziz1221" target="_blank" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(240,240,255,0.04);border-color:rgba(240,240,255,0.1);"><i class="fab fa-github" style="color:#f0f0ff;font-size:18px;"></i></div>
-            <div class="contact-link-text"><strong>GitHub</strong><span>github.com/AmirAziz1221</span></div>
-          </a>
-          <a href="https://www.linkedin.com/in/amir-aziz-2868aa266/" target="_blank" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(0,119,181,0.08);border-color:rgba(0,119,181,0.2);"><i class="fab fa-linkedin" style="color:#0077b5;font-size:18px;"></i></div>
-            <div class="contact-link-text"><strong>LinkedIn</strong><span>linkedin.com/in/amir-aziz</span></div>
-          </a>
-          <a href="https://www.fiverr.com/sellers/amiraziz1221" target="_blank" class="contact-link">
-            <div class="contact-link-icon ci-fv">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Fiverr_Logo_09.2020.svg" alt="Fiverr" style="width:20px;filter:brightness(10);opacity:0.85;">
-            </div>
-            <div class="contact-link-text"><strong>Fiverr</strong><span>fiverr.com/amiraziz1221</span></div>
-          </a>
-          <a href="https://www.kaggle.com/amirazizdatascience" target="_blank" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(32,190,255,0.06);border-color:rgba(32,190,255,0.2);"><i class="fab fa-kaggle" style="color:#20beff;font-size:18px;"></i></div>
-            <div class="contact-link-text"><strong>Kaggle</strong><span>kaggle.com/amirazizdatascience</span></div>
-          </a>
-          <a href="https://discord.gg/AE7wZjwH" target="_blank" class="contact-link">
-            <div class="contact-link-icon" style="background:rgba(88,101,242,0.08);border-color:rgba(88,101,242,0.2);"><i class="fab fa-discord" style="color:#5865f2;font-size:18px;"></i></div>
-            <div class="contact-link-text"><strong>Discord</strong><span>discord.gg/AE7wZjwH</span></div>
-          </a>
-        </div>
-      </div>
-      <div class="contact-form reveal">
-        <div class="form-group form-row">
-          <div>
-            <label>Name</label>
-            <input type="text" placeholder="Your name">
-          </div>
-          <div>
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Subject</label>
-          <input type="text" placeholder="Project inquiry, collaboration...">
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell me about your project or how I can help..."></textarea>
-        </div>
-        <button class="btn-send" onclick="sendMsg()">
-          <i class="fas fa-paper-plane"></i> Send Message
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-grid-bg"></div>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="#home" class="logo">Amir<span>.</span>Aziz</a>
-      <p>Computer Vision Engineer & AI Developer. Building intelligent visual intelligence systems with deep learning and modern AI frameworks.</p>
-      <div class="footer-social">
-        <a href="https://github.com/AmirAziz1221" target="_blank" class="soc-btn" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/amir-aziz-2868aa266/" target="_blank" class="soc-btn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.kaggle.com/amirazizdatascience" target="_blank" class="soc-btn" title="Kaggle"><i class="fab fa-kaggle"></i></a>
-        <a href="https://wa.me/923049274032" target="_blank" class="soc-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://discord.gg/AE7wZjwH" target="_blank" class="soc-btn" title="Discord"><i class="fab fa-discord"></i></a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Portfolio</h4>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Expertise</h4>
-      <ul>
-        <li><a href="#services">Computer Vision</a></li>
-        <li><a href="#services">Object Detection</a></li>
-        <li><a href="#services">Segmentation</a></li>
-        <li><a href="#services">Pose Estimation</a></li>
-        <li><a href="#services">Generative AI</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <ul>
-        <li><a href="https://github.com/AmirAziz1221" target="_blank">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/amir-aziz-2868aa266/" target="_blank">LinkedIn</a></li>
-        <li><a href="https://www.fiverr.com/sellers/amiraziz1221" target="_blank">Fiverr</a></li>
-        <li><a href="https://www.kaggle.com/amirazizdatascience" target="_blank">Kaggle</a></li>
-        <li><a href="https://wa.me/923049274032" target="_blank">WhatsApp</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 <span>Amir Aziz</span>. All Rights Reserved.</p>
-    <p>Built for Computer Vision & AI</p>
-  </div>
-</footer>
+<dialog id="dl"><div class="m" id="dm"></div><div class="b"><h3 id="dt"></h3><div><h4>PROBLEM</h4><p id="dp"></p></div><div><h4>SOLUTION</h4><p id="ds"></p></div><div class="tg" id="dg"></div>
+<div class="rw"><a class="btn p sm" id="dgh" target="_blank" rel="noopener">GitHub</a><button class="btn sm" id="dx">Close</button></div></div></dialog>
 
 <script>
-// ===== PARTICLES =====
-const canvas=document.getElementById('particles');
-const ctx=canvas.getContext('2d');
-let W,H,particles=[];
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-resize();window.addEventListener('resize',resize);
-function Particle(){
-  this.x=Math.random()*W;this.y=Math.random()*H;
-  this.vx=(Math.random()-0.5)*0.3;this.vy=(Math.random()-0.5)*0.3;
-  this.r=Math.random()*1.5+0.5;this.alpha=Math.random()*0.4+0.1;
-  this.color=Math.random()>0.5?'0,229,255':'139,92,246';
-}
-for(let i=0;i<100;i++)particles.push(new Particle());
-function drawParticles(){
-  ctx.clearRect(0,0,W,H);
-  particles.forEach(p=>{
-    p.x+=p.vx;p.y+=p.vy;
-    if(p.x<0)p.x=W;if(p.x>W)p.x=0;
-    if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(${p.color},${p.alpha})`;ctx.fill();
-  });
-  for(let i=0;i<particles.length;i++){
-    for(let j=i+1;j<particles.length;j++){
-      const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;
-      const d=Math.sqrt(dx*dx+dy*dy);
-      if(d<120){
-        ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);
-        ctx.lineTo(particles[j].x,particles[j].y);
-        ctx.strokeStyle=`rgba(0,229,255,${0.06*(1-d/120)})`;
-        ctx.lineWidth=0.5;ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(drawParticles);
-}
-drawParticles();
-
-// ===== NAVBAR =====
-window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
-});
-function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
-document.querySelectorAll('#navLinks a').forEach(a=>{
-  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
-});
-
-// ===== REVEAL =====
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      e.target.querySelectorAll('.skill-fill').forEach(b=>{b.style.width=b.getAttribute('data-w')+'%';});
-    }
-  });
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-// ===== SKILLS =====
-const skillsData = [
-  {
-    cat: 'tools',
-    icon: '🐍',
-    name: 'Python',
-    level: 'Expert',
-    w: 98
-  },
-  {
-    cat: 'cv',
-    icon: '🧠',
-    name: 'Computer Vision',
-    level: 'Expert',
-    w: 96
-  },
-  {
-    cat: 'tools',
-    icon: '⚡',
-    name: 'YOLO / Ultralytics',
-    level: 'Expert',
-    w: 97
-  },
-  {
-    cat: 'tools',
-    icon: '🔥',
-    name: 'PyTorch',
-    level: 'Advanced',
-    w: 92
-  },
-  {
-    cat: 'ai',
-    icon: '🤖',
-    name: 'Machine Learning',
-    level: 'Advanced',
-    w: 90
-  }
-];
-function renderSkills(filter){
-  const grid=document.getElementById('skillsGrid');
-  const list=filter==='all'?skillsData:skillsData.filter(s=>s.cat===filter);
-  grid.innerHTML=list.map(s=>`
-    <div class="skill-card reveal">
-      <div class="skill-icon">${s.icon}</div>
-      <div class="skill-name">${s.name}</div>
-      <div class="skill-level">${s.level}</div>
-      <div class="skill-bar"><div class="skill-fill" data-w="${s.w}" style="width:0%"></div></div>
-    </div>`).join('');
-  grid.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-}
-renderSkills('all');
-function filterSkills(cat,btn){
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');renderSkills(cat);
-}
-
-// ===== CONTACT FORM =====
-function sendMsg(){
-  const btn=document.querySelector('.btn-send');
-  btn.innerHTML='<i class="fas fa-check"></i> Message Sent!';
-  btn.style.background='linear-gradient(135deg,#22c55e,#16a34a)';
-  setTimeout(()=>{
-    btn.innerHTML='<i class="fas fa-paper-plane"></i> Send Message';
-    btn.style.background='';
-  },3000);
-}
-
-// ===== TYPING EFFECT =====
-const phrases=['Object Detection','Image Segmentation','Pose Estimation','Computer Vision','Deep Learning'];
-let pi=0,ci=0,deleting=false;
-const target=document.querySelector('.hero-h1 .highlight');
-if(target){
-  function type(){
-    const full=phrases[pi];
-    if(!deleting){
-      target.textContent=full.slice(0,ci+1);ci++;
-      if(ci===full.length){deleting=true;setTimeout(type,2000);return;}
-    }else{
-      target.textContent=full.slice(0,ci-1);ci--;
-      if(ci===0){deleting=false;pi=(pi+1)%phrases.length;}
-    }
-    setTimeout(type,deleting?60:100);
-  }
-  setTimeout(type,1500);
-}
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const GH='https://github.com/AmirAziz1221';
+const SK={'Computer vision':['OpenCV','YOLO','MediaPipe','Segmentation','Tracking','Pose estimation','Face detection'],
+'AI and ML':['PyTorch','TensorFlow','Scikit-learn','Transformers','Hugging Face','Deep learning'],
+'Backend and deploy':['FastAPI','Flask','Streamlit','Docker','ONNX','Vercel'],
+'Data and tools':['Python','SQL','Pandas','NumPy','Matplotlib','Git']};
+const PJ=[
+{c:'Computer Vision',t:'Flood segmentation',v:'FloodDetection',d:'Finds flooded areas in images for disaster response.',p:'Flood damage is slow to assess by eye.',s:'A segmentation model that marks flooded regions in images and video.',g:['Python','OpenCV','Segmentation','YOLO']},
+{c:'Computer Vision',t:'Vehicle detection and tracking',v:'VehicleDetection',d:'Real-time YOLO tracking for traffic monitoring.',p:'Traffic monitoring needs counted, tracked vehicles.',s:'Real-time detection and tracking of vehicles in video.',g:['YOLO','OpenCV','Tracking','Python']},
+{c:'Computer Vision',t:'Football tracking with mini map',v:'FootBall',d:'Tracks players and draws a tactical mini map.',p:'Match analysis needs player positions over time.',s:'Detects and tracks players, then projects them onto a mini map.',g:['Tracking','Pose','OpenCV','Python']},
+{c:'Computer Vision',t:'Infrastructure defect reports',v:'DefectDetection',d:'Detects cracks and writes inspection reports with AI.',p:'Inspection reports are slow to write by hand.',s:'Detects defects such as cracks, then generates a report with generative AI.',g:['YOLO','Generative AI','Reports','Python']},
+{c:'Web Apps',t:'Detection dashboard',i:'detection-dashboard.png',d:'Upload an image or video, get detections instantly.',p:'Non-technical users need a simple way to run a detector.',s:'A web dashboard where users upload media and see detection results.',g:['YOLO','Streamlit','Flask','OpenCV']},
+{c:'Computer Vision',t:'Pose estimation',i:'pose-estimation.jpg',d:'Body keypoints for sports and fitness analysis.',p:'Movement analysis needs body keypoints.',s:'Detects human keypoints to analyze movement and activity.',g:['Pose','OpenCV','Deep learning']},
+{c:'AI/ML',t:'Image classification',i:'classification.png',d:'CNN that sorts images into classes in PyTorch.',p:'Images need to be sorted into categories automatically.',s:'A CNN trained to classify images into multiple classes.',g:['CNN','PyTorch','Python']},
+{c:'Data Science',t:'Play Store analysis',i:'playstore-analysis.png',d:'Ratings, installs and trends explored in pandas.',p:'What drives app ratings and installs?',s:'Exploratory analysis of Play Store data with charts.',g:['Pandas','Matplotlib','Seaborn','EDA'],gh:'https://www.kaggle.com/amirazizdatascience'}];
+const SV=[['Computer vision','Object detection, tracking, segmentation, pose and video analysis.'],['AI applications','Web apps that put a model in front of real users.'],['Backend APIs','FastAPI services for real-time inference.'],['Data science','Analysis, predictive models and ML pipelines.'],['AI reports','Turn detected defects or events into written reports.']];
+const media=p=>p.v?`<video muted loop playsinline preload="none" poster="" src="videos/${p.v}.mp4"></video>`:`<img loading="lazy" src="images/${p.i}" alt="${p.t}">`;
+function tabs(el,list,fn){el.innerHTML=list.map((x,i)=>`<button class="${i?'':'on'}">${x}</button>`).join('');
+ $$('button',el).forEach(b=>b.onclick=()=>{$$('button',el).forEach(x=>x.classList.remove('on'));b.classList.add('on');fn(b.textContent)});fn(list[0])}
+tabs($('#sk-t'),['All',...Object.keys(SK)],k=>{$('#sk').innerHTML=Object.entries(SK).filter(([n])=>k=='All'||n==k).map(([n,a])=>`<div class="card" data-det="${n.toLowerCase()} 0.97"><h3>${n}</h3><div class="tg">${a.map(x=>`<span>${x}</span>`).join('')}</div></div>`).join('')});
+tabs($('#pj-t'),['All','Computer Vision','AI/ML','Data Science','Web Apps'],k=>{
+ $('#pj').innerHTML=PJ.map((p,i)=>[p,i]).filter(([p])=>k=='All'||p.c==k).map(([p,i])=>`<button class="card pj" data-i="${i}" data-det="${p.c.toLowerCase()} 0.9${i}"><div class="m">${media(p)}</div><div class="t"><h3>${p.t}</h3><p>${p.d}</p></div></button>`).join('');
+ $$('.pj').forEach(b=>{const v=$('video',b);if(v){b.onmouseenter=()=>v.play().catch(()=>{});b.onmouseleave=()=>v.pause()}b.onclick=()=>open(+b.dataset.i)})});
+$('#sv').innerHTML=SV.map(([t,d])=>`<div class="card" data-det="service 0.96"><h3>${t}</h3><p>${d}</p></div>`).join('');
+const dl=$('#dl');
+function open(i){const p=PJ[i];$('#dm').innerHTML=p.v?`<video controls muted loop playsinline preload="metadata" src="videos/${p.v}.mp4"></video>`:`<img src="images/${p.i}" alt="${p.t}">`;
+ $('#dt').textContent=p.t;$('#dp').textContent=p.p;$('#ds').textContent=p.s;$('#dg').innerHTML=p.g.map(x=>`<span>${x}</span>`).join('');
+ const a=$('#dgh');a.href=p.gh||GH;a.textContent=p.gh?'Kaggle':'GitHub';dl.showModal()}
+$('#dx').onclick=()=>{$('#dm').innerHTML='';dl.close()};dl.onclick=e=>{if(e.target==dl){$('#dm').innerHTML='';dl.close()}};
+/* nav, progress, theme */
+const nv=$('#nv'),lk=$('#lk'),mb=$('#mb');
+addEventListener('scroll',()=>{nv.classList.toggle('sc',scrollY>10);$('#pg').style.width=scrollY/(document.body.scrollHeight-innerHeight)*100+'%'},{passive:true});
+mb.onclick=()=>{const o=lk.classList.toggle('o');mb.setAttribute('aria-expanded',o)};lk.onclick=()=>lk.classList.remove('o');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('a',lk).forEach(a=>a.classList.toggle('on',a.hash=='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+$$('header[id],section[id]').forEach(s=>io.observe(s));
+try{const t=localStorage.th;if(t)document.documentElement.dataset.theme=t}catch(e){}
+$('#th').onclick=()=>{const d=document.documentElement,n=d.dataset.theme=='dark'?'light':'dark';d.dataset.theme=n;try{localStorage.th=n}catch(e){}};
+/* counters */
+new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.unobserve(e.target);$$('[data-n]',e.target).forEach(b=>{const n=+b.dataset.n;let k=0;const t=setInterval(()=>{b.textContent=++k;if(k>=n)clearInterval(t)},700/n)})}),{threshold:.4}).observe($('#st'));
+/* detection reticle */
+const rt=$('#rt'),rl=$('span',rt);
+document.addEventListener('pointermove',e=>{if(e.pointerType!='mouse')return;const t=e.target.closest('[data-det]');rt.style.opacity=1;
+ if(t){const r=t.getBoundingClientRect();Object.assign(rt.style,{left:r.left-4+'px',top:r.top-4+'px',width:r.width+8+'px',height:r.height+8+'px'});rl.textContent=t.dataset.det}
+ else{Object.assign(rt.style,{left:e.clientX-14+'px',top:e.clientY-14+'px',width:'28px',height:'28px'});rl.textContent=''}});
+document.addEventListener('pointerleave',()=>rt.style.opacity=0);
+/* contact */
+$('#cp').onclick=()=>{navigator.clipboard?.writeText('amiraziz.uet@gmail.com');$('#cpt').textContent='Copied';setTimeout(()=>$('#cpt').textContent='Copy',1800)};
+$('#cf').onsubmit=e=>{e.preventDefault();let ok=true;
+ [['n','en','Enter your name.',v=>v.trim()],['e','ee','Enter a valid email.',v=>/^\S+@\S+\.\S+$/.test(v)],['m','em','Write a short message.',v=>v.trim().length>9]].forEach(([i,r,msg,f])=>{const x=$('#'+i),g=f(x.value);x.setAttribute('aria-invalid',!g);$('#'+r).textContent=g?'':msg;if(!g)ok=false});
+ if(!ok)return;const q=encodeURIComponent;
+ location.href=`mailto:amiraziz.uet@gmail.com?subject=${q($('#s').value||'Portfolio enquiry from '+$('#n').value)}&body=${q($('#m').value+'\n\n'+$('#n').value+' ('+$('#e').value+')')}`;
+ $('#ok').style.display='block'};
 </script>
 </body>
 </html>
