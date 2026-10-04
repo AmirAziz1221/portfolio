@@ -1,15 +1,15 @@
-# 🤖 Amir Aziz — Computer Vision Engineer & AI Developer Portfolio
+# Amir Aziz — Computer Vision Engineer & AI Developer Portfolio
 
 ![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen?style=for-the-badge)
 ![AI](https://img.shields.io/badge/AI-Computer%20Vision-00e5ff?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-Expert-blue?style=for-the-badge&logo=python)
 ![YOLO](https://img.shields.io/badge/YOLO-Ultralytics-purple?style=for-the-badge)
 
-> **Live Portfolio:** 🌐 [https://amiraziz1221.github.io/portfolio/](https://AmirAziz1221.github.io/portfolio)
+> **Live Portfolio:**  [https://amiraziz1221.github.io/portfolio/](https://AmirAziz1221.github.io/portfolio)
 
 ---
 
-## 👨‍💻 About Me
+## About Me
 
 I am **Amir Aziz**, a passionate **Data Science graduate** from the University of Engineering and Technology (UET), Peshawar. I specialize in **Computer Vision** and **Artificial Intelligence**, building real-world AI systems for object detection, image segmentation, pose estimation, object tracking, and AI-based report generation.
 
@@ -17,19 +17,19 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-## 🌐 Live Demo & Links
+## Live Demo & Links
 
 | Platform | Link |
 |---|---|
-| 🌐 GitHub Pages | [AmirAziz1221.github.io/portfolio](https://AmirAziz1221.github.io/portfolio) |
-| 💼 Fiverr | [fiverr.com/amiraziz1221](https://www.fiverr.com/sellers/amiraziz1221) |
-| 🐙 GitHub | [github.com/AmirAziz1221](https://github.com/AmirAziz1221) |
-| 📊 Kaggle | [kaggle.com/amirazizdatascience](https://www.kaggle.com/amirazizdatascience) |
-| 💼 LinkedIn | [linkedin.com/in/amir-aziz](https://www.linkedin.com/in/amir-aziz-2868aa266/) |
+|  GitHub Pages | [AmirAziz1221.github.io/portfolio](https://AmirAziz1221.github.io/portfolio) |
+|  Fiverr | [fiverr.com/amiraziz1221](https://www.fiverr.com/sellers/amiraziz1221) |
+|  GitHub | [github.com/AmirAziz1221](https://github.com/AmirAziz1221) |
+|  Kaggle | [kaggle.com/amirazizdatascience](https://www.kaggle.com/amirazizdatascience) |
+|  LinkedIn | [linkedin.com/in/amir-aziz](https://www.linkedin.com/in/amir-aziz-2868aa266/) |
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Computer Vision
 ![OpenCV](https://img.shields.io/badge/OpenCV-27338e?style=flat&logo=OpenCV&logoColor=white)
@@ -51,9 +51,9 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-## 📂 Featured Projects
+## Featured Projects
 
-### 🌊 1. Flood Segmentation & Detection
+### 1. Flood Segmentation & Detection
 > AI-based system for detecting and segmenting flood-affected areas from images or satellite-style data. Helps in disaster monitoring, emergency response, and environmental analysis.
 
 - **Tech:** Python, OpenCV, Deep Learning, Segmentation Models, YOLO
@@ -61,7 +61,7 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-### 🚗 2. Vehicle Detection & Tracking
+### 2. Vehicle Detection & Tracking
 > Real-time vehicle detection and tracking system for traffic monitoring, road surveillance, and intelligent transportation applications.
 
 - **Tech:** YOLO, OpenCV, Object Tracking, Python
@@ -69,7 +69,7 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-### ⚽ 3. Football Player Tracking & Mini Map
+### 3. Football Player Tracking & Mini Map
 > Sports analytics project that detects football players, tracks their movement, and generates a mini-map visualization for match analysis and coaching insights.
 
 - **Tech:** Computer Vision, Object Tracking, Pose Estimation, Python, OpenCV
@@ -77,7 +77,7 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-### 🏗️ 4. Infrastructure Defect Detection & AI Report Generation
+### 4. Infrastructure Defect Detection & AI Report Generation
 > Detects infrastructure defects such as cracks and structural damage, then automatically generates detailed inspection reports using Generative AI.
 
 - **Tech:** YOLO, Computer Vision, Generative AI, Python, Report Generation
@@ -85,7 +85,7 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-### 📱 5. Play Store App Analysis
+### 5. Play Store App Analysis
 > Data science project analyzing Play Store app data to understand ratings, reviews, categories, installs, and performance trends with rich visualizations.
 
 - **Tech:** Python, Pandas, Matplotlib, Seaborn, EDA
@@ -93,7 +93,7 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-### 🏷️ 6. Object Classification System
+### 6. Object Classification System
 > Deep learning-based image classification system using trained CNN neural network models to categorize images into multiple classes with high accuracy.
 
 - **Tech:** CNN, PyTorch, Python, Image Classification
@@ -101,7 +101,7 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-### 🖥️ 7. Real-Time Object Detection Dashboard
+### 7. Real-Time Object Detection Dashboard
 > Web-based dashboard where users upload images or videos and get real-time AI-based object detection results through an interactive interface.
 
 - **Tech:** YOLO, Streamlit, Flask, Python, OpenCV
@@ -109,7 +109,7 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-### 🤸 8. Human Pose Estimation System
+### 8. Human Pose Estimation System
 > Computer vision system that detects human body keypoints and analyzes body movement for sports performance, fitness tracking, and activity recognition.
 
 - **Tech:** Pose Estimation, OpenCV, Deep Learning, Python
@@ -117,29 +117,30 @@ Currently working as a **Computer Vision Engineer Intern** at the **National Cen
 
 ---
 
-## 💼 My Services
+## My Services
 
 | Service | Description |
 |---|---|
-| 👁️ Computer Vision Development | AI-powered vision systems for detection, tracking, classification |
-| 🎯 Object Detection & Tracking | Real-time YOLO-based detection for surveillance and transportation |
-| 🗺️ Image Segmentation | Flood detection, damage analysis, object boundary detection |
-| 🏃 Pose Estimation | Sports analytics, fitness tracking, activity recognition |
-| 📊 Data Science Projects | Data analysis, dashboards, predictive modeling |
-| 📝 AI Report Generation | Auto-generate reports from detected visual patterns |
+| Computer Vision Development | AI-powered vision systems for detection, tracking, classification |
+| Object Detection & Tracking | Real-time YOLO-based detection for surveillance and transportation |
+| Image Segmentation | Flood detection, damage analysis, object boundary detection |
+| Pose Estimation | Sports analytics, fitness tracking, activity recognition |
+| Data Science Projects | Data analysis, dashboards, predictive modeling |
+| AI Report Generation | Auto-generate reports from detected visual patterns |
 
 ---
 
-## 🎓 Education & Experience
+## Education & Experience
 
 | Type | Detail |
 |---|---|
-| 🎓 **Degree** | BS Data Science — UET Peshawar (Completed July 2026) |
-| 💼 **Internship** | Computer Vision Engineer Intern — NCAI, UET Peshawar (Current) |
+| **Degree** | BS Data Science — UET Peshawar (Completed July 2026) |
+| **Internship** | Computer Vision Engineer Intern — NCAI, UET Peshawar |
+| **Internship** | TestTrick (Current) |
 
 ---
 
-## 📁 Portfolio Structure
+## Portfolio Structure
 
 ```
 portfolio/
@@ -163,23 +164,23 @@ portfolio/
 
 ---
 
-## 📞 Contact Me
+## Contact Me
 
 | Platform | Link |
 |---|---|
-| 📧 Email | [amiraziz.uet@gmail.com](mailto:amiraziz.uet@gmail.com) |
-| 💬 WhatsApp | [+92 304 9274032](https://wa.me/923049274032) |
-| 🐙 GitHub | [github.com/AmirAziz1221](https://github.com/AmirAziz1221) |
-| 💼 LinkedIn | [linkedin.com/in/amir-aziz](https://www.linkedin.com/in/amir-aziz-2868aa266/) |
-| 🟢 Fiverr | [fiverr.com/amiraziz1221](https://www.fiverr.com/sellers/amiraziz1221) |
-| 📊 Kaggle | [kaggle.com/amirazizdatascience](https://www.kaggle.com/amirazizdatascience) |
-| 🎮 Discord | [discord.gg/AE7wZjwH](https://discord.gg/AE7wZjwH) |
+|  Email | [amiraziz.uet@gmail.com](mailto:amiraziz.uet@gmail.com) |
+|  WhatsApp | [+92 304 9274032](https://wa.me/923049274032) |
+|  GitHub | [github.com/AmirAziz1221](https://github.com/AmirAziz1221) |
+|  LinkedIn | [linkedin.com/in/amir-aziz](https://www.linkedin.com/in/amir-aziz-2868aa266/) |
+|  Fiverr | [fiverr.com/amiraziz1221](https://www.fiverr.com/sellers/amiraziz1221) |
+|  Kaggle | [kaggle.com/amirazizdatascience](https://www.kaggle.com/amirazizdatascience) |
+|  Discord | [discord.gg/AE7wZjwH](https://discord.gg/AE7wZjwH) |
 
 ---
 
-## ⭐ Support
+## Support
 
-If you like this portfolio, please give it a **⭐ Star** on GitHub — it means a lot!
+If you like this portfolio, please give it a **Star** on GitHub — it means a lot!
 
 ---
 
